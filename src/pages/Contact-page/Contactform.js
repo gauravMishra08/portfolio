@@ -7,7 +7,7 @@ function ContactForm() {
   const [stateMessage, setStateMessage] = useState("");
   const [emailError, setEmailError] = useState(""); // new state for email error
 
-  emailjs.init("rP26y3sG2vNrEFG6j");
+  emailjs.init({publicKey: "rP26y3sG2vNrEFG6j"});
 
   const validateEmail = (email) => {
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -22,7 +22,7 @@ function ContactForm() {
     event.preventDefault();
 
     const serviceID = "service_225uxkq";
-    const templateID = "template_sv2feix";
+    const templateID = "template_l9bcla2";
 
     const name = event.target.from_name.value;
     const email = event.target.user_email.value;
@@ -37,7 +37,7 @@ function ContactForm() {
 
     const params = {
       from_name: name,
-      to_name: "Gaurav",
+      to_name: email,
       message: `Email: ${email}\nMessage: ${message}`,
     };
 
